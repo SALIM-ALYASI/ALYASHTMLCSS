@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            background: #1B7A93;
+        }
+
+        .card {
+            position: relative;
+            width: 520px;
+            height: 350px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            transition: 0.5s;
+
+        }
+
+        .card .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: border-radius 0.5s;
+
+        }
+
+        .card .circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F4B340;
+            clip-path: circle(120px at center);
+            transition: 0.5s;
+
+        }
+
+
+        .card:hover .circle::before {
+            background: #1B7A93;
+            clip-path: circle(400px at center);
+            border-radius: 20px;
+            box-shadow: 0 0 15px #666;
+        }
+
+        .card img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 300px;
+            transition: 0.5s;
+        }
+
+        .card:hover img {
+            left: 87%;
+            height: 330px;
+        }
+
+        .card .content {
+            position: relative;
+            width: 40%;
+            left: 20%;
+            padding: 20px 20px 20px 80px;
+            transition: 0.5s;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .card:hover .content {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .card .content h2 {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 2em;
+            line-height: 1em;
+            margin-bottom: 10px;
+        }
+
+        .card .content p {
+            color: #fff;
+            color: #fff;
+        }
+
+        .card .content h3 {
+            color: #fff;
+        }
+
+        .card .content a {
+            position: relative;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: #fff;
+            color: #0e7ebf;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        @media screen and (max-width: 900px) {
+            .card {
+                width: auto;
+                max-width: 350px;
+                align-items: flex-start;
+                margin: 10px;
+            }
+
+            .card:hover {
+                height: 450px;
+            }
+
+            .card .content {
+                width: 100%;
+                left: 0;
+                padding: 30px;
+            }
+
+            .card:hover img {
+                top: 83%;
+                left: 50%;
+                height: 300px;
+            }
+
+            .card .content p {
+
+                width: 95%;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+            .card {
+                width: auto;
+                width: auto;
+                max-width: 350px;
+                align-items: flex-start;
+                margin: 20px;
+            }
+
+            .card .content p {
+                margin-top: 10px;
+                height: 50%;
+                width: 95%;
+                font-size: 16px;
+                /* حجم الخط */
+                text-align: center;
+            }
+
+            .card .content {
+
+                text-align: center;
+            }
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 23px;
+            background: rgba(255, 255, 255, 0.5);
+            justify-content: center;
+            padding: 5px;
+            margin: 15px;
+            transition: 0.7s ease;
+            margin-right: 30px;
+
+            border-radius: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            padding: 6px 15px;
+        }
+
+        header {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            /* background :rgba(255, 255, 255, 0.5);  */
+
+        }
+
+        header .logo {
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+        }
+
+        header ul li {
+            margin-right: 30px;
+        }
+
+        header ul li a {
+            padding: 6px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.5);
+
+        }
+
+        header ul li a:hover {
+
+            background: #fff;
+            color: #b0a995;
+
+        }
+
+        .footer {
+            height: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 2em;
+            justify-content: space-between;
+            display: flex;
+
+        }
+
+        .footer-title {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .title {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 50px;
+            color: #1B7A93;
+        }
+    </style>
+    <header>
+        <h2><a href="#" class="logo"> </a></h2>
+        <ul>
+            <li><a href="#alyasi_software"> المنتجات</a></li>
+            <li><a href="https://alyasi.store">تواصل معي</a></li>
+        </ul>
+    </header>
+</head>
+
+<body>
+    <h2 class="title" id="alyasi_software">اعمالي</h2>
+    <div class="card-container "> 
+        <div class="card">
+            <div class="circle"> </div>
+            <div class="content">
+                <h2>شاحن مزدو د </h2>
+                <p>
+                    شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ
+                    شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ
+                    شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ
+                    شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ
+
+                </p>
+                <h3>15 ريال</h3>
+                <a href="#">شراء</a>
+            </div>
+            <img src="ankr2.png" alt="">
+        </div>
+        <div class="card">
+            <div class="circle"> </div>
+            <div class="content">
+                <h2>شاحن مزدو د </h2>
+                <p>شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ</p>
+                <h3>15 ريال</h3>
+                <a href="#">شراء</a>
+            </div>
+            <img src="ankr2.png" alt="">
+        </div>
+        <div class="card">
+            <div class="circle"> </div>
+            <div class="content">
+                <h2>شاحن مزدو د </h2>
+                <p>شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ</p>
+                <h3>15 ريال</h3>
+                <a href="#">شراء</a>
+            </div>
+            <img src="ankr2.png" alt="">
+        </div>
+        <div class="card">
+            <div class="circle"> </div>
+            <div class="content">
+                <h2>شاحن مزدو د </h2>
+                <p>شاحن يو اس بي سي من انكر بقوة 65 واط مع 4 منافذ</p>
+                <h3>15 ريال</h3>
+                <a href="#">شراء</a>
+            </div>
+            <img src="ankr2.png" alt="">
+        </div>
+    </div>
+    <footer class="footer" id="footer">
+
+        <div class="Communication2">
+
+            <a href="https://instagram.com/alyasi_software?igshid=YmMyMTA2M2Y="> <i
+                    class="fa-brands fa-instagram"></i></a>
+
+
+            <a href="https://api.whatsapp.com/send/?phone=96871568883&text&type=phone_number&app_absent=0"><i
+                    class="fa-brands fa-whatsapp"></i></a>
+
+
+
+        </div>
+        <p class="footer-title"><span>ALYASI SOFTWARE</span>
+            <script type="text/javascript" src="javascript.js">
+
+            </script>
+        </p>
+    </footer>
+</body>
+
+</html>
